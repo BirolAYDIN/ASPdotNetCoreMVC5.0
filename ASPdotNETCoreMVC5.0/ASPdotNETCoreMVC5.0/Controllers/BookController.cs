@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPdotNETCoreMVC5._0.Models;
+using Microsoft.AspNetCore.Routing;
 
 namespace ASPdotNETCoreMVC5._0.Controllers
 {
@@ -24,9 +25,10 @@ namespace ASPdotNETCoreMVC5._0.Controllers
             return View(data);
         }
 
-        public BookModel GetBook(int id)
+        public ViewResult GetBook(int id)
         {
-            return _bookRepository.GetBookById(id);
+            var data = _bookRepository.GetBookById(id);
+            return View(data);
         }
 
         public List<BookModel> SearchBooks(string bookName , string authorName)

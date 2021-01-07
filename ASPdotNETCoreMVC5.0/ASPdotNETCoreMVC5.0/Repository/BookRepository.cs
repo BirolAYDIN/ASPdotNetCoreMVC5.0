@@ -33,8 +33,8 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 new BookModel(){ Id = 1, Title="ASP.Core MVC", Author="Birol AYDIN" ,Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
                 new BookModel(){ Id = 2, Title="Dot Net Core" , Author="Birol Aydın",Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
                 new BookModel(){ Id = 3, Title="Java Script", Author="Birol AYDIN",Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
-                new BookModel(){ Id = 4, Title="PHP", Author="Birol AYDIN" ,Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
-                new BookModel(){ Id = 5, Title="jAVA" , Author="Birol Aydın",Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
+                new BookModel(){ Id = 4, Title="Php", Author="Birol AYDIN" ,Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
+                new BookModel(){ Id = 5, Title="Java" , Author="Birol Aydın",Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
                 new BookModel(){ Id = 6, Title="HTML5", Author="Birol AYDIN",Description="Some quick example text to build on the card title and make up the bulk of the card's content."}
             };
         }
