@@ -1,31 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASPdotNETCoreMVC5._0.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASPdotNETCoreMVC5._0.Models;
 
 namespace ASPdotNETCoreMVC5._0.Controllers
 {
     public class BookController : Controller
     {
+        private readonly BookRepository _bookRepository = null;
+
+        public BookController()
+        {
+            _bookRepository = new BookRepository();
+        }
+
+
         //public IActionResult Index()
         //{
         //    return View();
         //}
 
-        public string GetAllBooks()
+        public List<BookModel> GetAllBooks()
         {
-            return "All Books";
+            return _bookRepository.GetAllBooks();
         }
 
-        public string GetBook(int id)
+        public BookModel GetBook(int id)
         {
-            return $"book with id: {id}";
+            return _bookRepository.GetBookById(id);
         }
 
-        public string SearchBook(string bookName , string authorName)
+        public List<BookModel> SearchBooks(string bookName , string authorName)
         {
-            return $"Book with name = {bookName} & Author = {authorName}";
+            return _bookRepository.SearchBook(bookName, authorName);
         }
     }
 }
