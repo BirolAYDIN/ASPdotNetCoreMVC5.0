@@ -17,5 +17,10 @@ namespace ASPdotNETCoreMVC5._0.Controllers
         {
             return View();
         }
+
+        public ViewResult ContactUs()
+        {
+            return View();
+        }
     }
 }
