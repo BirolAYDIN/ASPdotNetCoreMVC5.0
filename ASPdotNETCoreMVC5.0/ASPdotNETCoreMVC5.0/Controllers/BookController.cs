@@ -17,12 +17,6 @@ namespace ASPdotNETCoreMVC5._0.Controllers
             _bookRepository = new BookRepository();
         }
 
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
         public ViewResult GetAllBooks()
         {
             var data = _bookRepository.GetAllBooks();

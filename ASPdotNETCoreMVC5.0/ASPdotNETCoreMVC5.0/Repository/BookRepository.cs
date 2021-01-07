@@ -30,8 +30,9 @@ namespace ASPdotNETCoreMVC5._0.Repository
         {
             return new List<BookModel>()
             {
-                new BookModel(){ Id = 1, Title="ASP.Core MVC", Author="Birol AYDIN"},
-                new BookModel(){ Id = 2, Title="Dot Net Core" , Author="Birol Aydın"}
+                new BookModel(){ Id = 1, Title="ASP.Core MVC", Author="Birol AYDIN" ,Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
+                new BookModel(){ Id = 2, Title="Dot Net Core" , Author="Birol Aydın",Description="Some quick example text to build on the card title and make up the bulk of the card's content."},
+                new BookModel(){ Id = 3, Title="Java Script", Author="Birol AYDIN",Description="Some quick example text to build on the card title and make up the bulk of the card's content."}
             };
         }
     }
