@@ -8,10 +8,12 @@ using ASPdotNETCoreMVC5._0.Models;
 namespace ASPdotNETCoreMVC5._0.Controllers
 {
     public class HomeController : Controller
-    {
+    {  
+        [ViewData]
+        public string  CustomProperty { get; set; }
         public ViewResult Index()
         {
-            ViewData["book"] = new BookModel() { Id = 10, Author = "Birol AYDIN" };
+            CustomProperty = "Custom Value";
             return View();
         }
 

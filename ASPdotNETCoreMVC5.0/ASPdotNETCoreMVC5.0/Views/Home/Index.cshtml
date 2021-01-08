@@ -1,19 +1,13 @@
-﻿@{ 
-    var bookInfo = ViewData["book"] as BookModel;
-}
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
 
 <section class="jumbotron text-center mt-5">
     <div class="container">
-        <h1>Book App</h1>
+        <h1>Book App @ViewData["CustomProperty"]</h1>
         <p class="lead text-muted">
-            ID: @bookInfo.Id
-            Author: @bookInfo.Author
-            This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+           This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
         </p>
         <p>
             <a href="#" class="btn btn-primary my-2">Search books</a>
