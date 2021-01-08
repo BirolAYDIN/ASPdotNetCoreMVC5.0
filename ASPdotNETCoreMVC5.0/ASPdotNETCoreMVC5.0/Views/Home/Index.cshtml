@@ -1,5 +1,5 @@
 ﻿@{ 
-    dynamic data = ViewBag.Data;
+    var bookInfo = ViewData["book"] as BookModel;
 }
 
 @{
@@ -9,10 +9,10 @@
 
 <section class="jumbotron text-center mt-5">
     <div class="container">
-        <h1>Book App @data.Id , @data.Name</h1>
+        <h1>Book App</h1>
         <p class="lead text-muted">
-            Id: @ViewBag.Type.Id <br/>
-            Name: @ViewBag.Type.Author
+            ID: @bookInfo.Id
+            Author: @bookInfo.Author
             This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
         </p>
         <p>
