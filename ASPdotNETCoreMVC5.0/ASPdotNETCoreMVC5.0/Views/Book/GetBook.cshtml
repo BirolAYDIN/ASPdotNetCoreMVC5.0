@@ -1,8 +1,8 @@
-﻿@model ASPdotNETCoreMVC5._0.Models.BookModel
+﻿@using ASPdotNETCoreMVC5._0.Models;
+@model BookModel
 
 @{
     ViewData["Title"] = "GetBook";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-md-12 text-primary">
                     <span class="label label-primary">By:</span>
-                    <a class="link-primary" href="#">@Model.Author</a> 
+                    <a class="link-primary" href="#">@Model.Author</a>
                 </div>
             </div>
 
