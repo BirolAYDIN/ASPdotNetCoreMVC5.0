@@ -34,15 +34,20 @@ namespace ASPdotNETCoreMVC5._0
 
             app.UseStaticFiles();
 
-            
-
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+            //endpoints.MapDefaultControllerRoute();
+            endpoints.MapControllerRoute(
+                 name: "Default",
+                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            });
+                 //name: "Default",
+                 //pattern: "bookApp/{controller=Home}/{action=Index}/{id?}");
+
+
+        });
             
 
         }

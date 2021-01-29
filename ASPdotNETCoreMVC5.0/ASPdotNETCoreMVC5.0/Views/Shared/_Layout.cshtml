@@ -29,17 +29,21 @@
                     </ul>
                     <ul class="navbar-nav flex-grow-1 m-3">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/home/aboutus">About</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/home/contactus">Contact</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Contactus">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/book/getallbooks">All Books</a>
+                            <a class="nav-link text-dark" asp-controller="Book" asp-action="Getallbooks">All Books</a>
                         </li>
+
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-protocol="http" asp-host="webBook.com" asp-controller="Book" asp-action="Getallbooks">New Link</a>
+                        </li>*@
                     </ul>
                 </div>
                 <link href="~/css/Style.css" rel="stylesheet" />
