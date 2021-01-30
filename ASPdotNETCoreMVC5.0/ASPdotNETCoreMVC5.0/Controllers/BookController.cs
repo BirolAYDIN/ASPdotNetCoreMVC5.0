@@ -35,5 +35,16 @@ namespace ASPdotNETCoreMVC5._0.Controllers
         {
             return _bookRepository.SearchBook(bookName, authorName);
         }
+
+        public ViewResult AddNewBook()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult AddNewBook(BookModel bookModel)
+        {
+            return View();
+        }
     }
 }
