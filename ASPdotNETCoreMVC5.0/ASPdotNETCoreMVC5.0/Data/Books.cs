@@ -15,6 +15,7 @@ namespace ASPdotNETCoreMVC5._0.Data
         [Required(ErrorMessage ="Please enter the author name")]
         public string Author { get; set; }
         [StringLength(500)]
+        [Required]
         public string Description { get; set; }
         public string Category { get; set; }
         public string Language { get; set; }

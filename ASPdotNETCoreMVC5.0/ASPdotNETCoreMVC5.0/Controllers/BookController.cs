@@ -55,7 +55,7 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
-            
+            ModelState.AddModelError("","This is my error message");
             return View();
         }
     }
