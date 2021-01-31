@@ -46,12 +46,16 @@ namespace ASPdotNETCoreMVC5._0.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
         {
-            int id = await _bookRepository.AddNewBook(bookModel);
-            
-            if(id > 0)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true , bookId = id });
+                int id = await _bookRepository.AddNewBook(bookModel);
+
+                if (id > 0)
+                {
+                    return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
+                }
             }
+            
             return View();
         }
     }

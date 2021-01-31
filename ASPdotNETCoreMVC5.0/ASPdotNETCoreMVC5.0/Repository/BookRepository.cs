@@ -46,14 +46,14 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 {
                     books.Add(new BookModel()
                     {
-                        Author=book.Author,
-                        Category=book.Category,
-                        Description=book.Description,
-                        Id=book.Id,
-                        Language=book.Language,
-                        Title=book.Title,
-                        TotalPages=book.TotalPages
-                    });
+                        Author = book.Author,
+                        Category = book.Category,
+                        Description = book.Description,
+                        Id = book.Id,
+                        Language = book.Language,
+                        Title = book.Title,
+                        TotalPages = book.TotalPages
+                    }); ;
 
                 }
             }
