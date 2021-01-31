@@ -25,9 +25,9 @@ namespace ASPdotNETCoreMVC5._0.Controllers
             return View(data);
         }
         [Route("book-details/{id}")]
-        public ViewResult GetBook(int id ,string nameOfBook)
+        public async Task<ViewResult> GetBook(int id ,string nameOfBook)
         {
-            var data = _bookRepository.GetBookById(id);
+            var data = await _bookRepository.GetBookById(id);
             return View(data);
         }
 
