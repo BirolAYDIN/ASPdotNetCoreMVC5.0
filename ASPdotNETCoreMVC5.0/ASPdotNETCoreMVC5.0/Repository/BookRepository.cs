@@ -17,7 +17,7 @@ namespace ASPdotNETCoreMVC5._0.Repository
             _context = context;
         }
 
-        public int AddNewBook(BookModel bookModel)
+        public async Task<int> AddNewBook(BookModel bookModel)
         {
             var newBook = new Books()
             {
@@ -29,8 +29,8 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 UpdatedOn =DateTime.UtcNow
             };
 
-            _context.Books.Add(newBook);
-            _context.SaveChanges();
+            await _context.Books.AddAsync(newBook);
+            await _context.SaveChangesAsync();
 
             return newBook.Id;
         }
