@@ -52,7 +52,7 @@ namespace ASPdotNETCoreMVC5._0.Controllers
             //}).ToList();
 
             var group1 = new SelectListGroup() { Name = "Group 1" };
-            var group2 = new SelectListGroup() { Name = "Group 2" };
+            var group2 = new SelectListGroup() { Name = "Group 2" ,Disabled = true };
 
             ViewBag.Language = new List<SelectListItem> { 
                 new SelectListItem() { Text="English", Value="1" ,Group = group1},
@@ -77,7 +77,14 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
-            ViewBag.Language = new SelectList(GetLanguage(),"Id" ,"Text");
+            var group1 = new SelectListGroup() { Name = "Group 1" };
+            var group2 = new SelectListGroup() { Name = "Group 2", Disabled = true };
+
+            ViewBag.Language = new List<SelectListItem> {
+                new SelectListItem() { Text="English", Value="1" ,Group = group1},
+                new SelectListItem() { Text="English(U.K)" , Value="2" ,Group = group1},
+                new SelectListItem() { Text="Turkish" , Value="3", Disabled = true ,Group = group2}
+            };
 
             ModelState.AddModelError("","This is my error message");
             return View();
