@@ -7,3 +7,5 @@
 /ASPdotNETCoreMVC5.0/ASPdotNETCoreMVC5.0/bin/Debug/net5.0
 /ASPdotNETCoreMVC5.0/ASPdotNETCoreMVC5.0/obj
 /ASPdotNETCoreMVC5.0/ASPdotNETCoreMVC5.0/wwwroot
+/ASPdotNETCoreMVC5.0/ASPdotNETCoreMVC5.0/Migrations/20210201125250_AddedLanguageTable2.Designer.cs
+/ASPdotNETCoreMVC5.0/ASPdotNETCoreMVC5.0/Migrations/20210201125250_AddedLanguageTable2.cs

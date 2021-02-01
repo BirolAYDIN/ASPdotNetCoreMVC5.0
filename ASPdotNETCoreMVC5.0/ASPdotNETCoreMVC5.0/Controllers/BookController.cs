@@ -13,10 +13,12 @@ namespace ASPdotNETCoreMVC5._0.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _bookRepository = null;
+        private readonly LanguageRepository _languageRepository = null;
 
-        public BookController(BookRepository bookRepository)
+        public BookController(BookRepository bookRepository , LanguageRepository languageRepository)
         {
             _bookRepository = bookRepository;
+            _languageRepository = languageRepository;
         }
 
         public  async Task<ViewResult> GetAllBooks()
@@ -37,13 +39,14 @@ namespace ASPdotNETCoreMVC5._0.Controllers
             return _bookRepository.SearchBook(bookName, authorName);
         }
 
-        public ViewResult AddNewBook(bool isSuccess = false ,int bookId = 0)
+        public async Task<ViewResult> AddNewBook(bool isSuccess = false ,int bookId = 0)
         {
             var model = new BookModel()
             {
-                Language = "1"
+                LanguageId = 1
             };
 
+            ViewBag.Language = new SelectList(await _languageRepository.GetLanguages() , "Id" ,"Name");
             //ViewBag.Language = GetLanguage().Select(x => new SelectListItem() 
             //{ 
             //    Text  = x.Text,
@@ -77,6 +80,8 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
+            ViewBag.Language = new SelectList(await _languageRepository.GetLanguages(), "Id", "Name");
+
             //var group1 = new SelectListGroup() { Name = "Group 1" };
             //var group2 = new SelectListGroup() { Name = "Group 2", Disabled = true };
 
@@ -90,13 +95,6 @@ namespace ASPdotNETCoreMVC5._0.Controllers
             return View();
         }
 
-        private List<LanguageModel> GetLanguage()
-        {
-            return new List<LanguageModel>()
-            {
-                new LanguageModel() { Id=1,Text="English" },
-                new LanguageModel() { Id=2,Text="English(U.K)" }
-            };
-        }
+        
     }
 }
