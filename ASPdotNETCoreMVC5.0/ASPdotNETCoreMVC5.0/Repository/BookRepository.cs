@@ -26,6 +26,7 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 Author = bookModel.Author,
                 Description = bookModel.Description,
                 TotalPages =bookModel.TotalPages,
+                Language=bookModel.Language,
                 CreatedOn = DateTime.UtcNow,
                 UpdatedOn =DateTime.UtcNow
             };
