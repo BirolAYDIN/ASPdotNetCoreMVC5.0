@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using ASPdotNETCoreMVC5._0.Models;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace ASPdotNETCoreMVC5._0.Controllers
 {
@@ -14,11 +16,15 @@ namespace ASPdotNETCoreMVC5._0.Controllers
     {
         private readonly BookRepository _bookRepository = null;
         private readonly LanguageRepository _languageRepository = null;
+        private readonly IWebHostEnvironment _webHostEnvironment = null;
 
-        public BookController(BookRepository bookRepository , LanguageRepository languageRepository)
+        public BookController(BookRepository bookRepository , 
+            LanguageRepository languageRepository ,
+            IWebHostEnvironment webHostEnvironment)
         {
             _bookRepository = bookRepository;
             _languageRepository = languageRepository;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public  async Task<ViewResult> GetAllBooks()
@@ -73,6 +79,14 @@ namespace ASPdotNETCoreMVC5._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(bookModel.CoverPhoto != null)
+                {
+                    string folder = "books/cover/";
+                    folder += Guid.NewGuid().ToString() +"_" + bookModel.CoverPhoto.FileName;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath ,folder);
+                    await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder ,FileMode.Create));
+                }
+
                 int id = await _bookRepository.AddNewBook(bookModel);
 
                 if (id > 0)

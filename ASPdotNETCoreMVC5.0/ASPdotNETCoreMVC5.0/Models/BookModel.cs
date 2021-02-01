@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using ASPdotNETCoreMVC5._0.Enums;
 using ASPdotNETCoreMVC5._0.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace ASPdotNETCoreMVC5._0.Models
 {
@@ -32,6 +33,9 @@ namespace ASPdotNETCoreMVC5._0.Models
         [Required(ErrorMessage = "Please enter the total pages")]
         [Display(Name = "Total pages of book")]
         public int TotalPages { get; set; }
-       
+
+        [Display(Name ="Choose the cover photo of your book")]
+        [Required]
+        public IFormFile CoverPhoto { get; set; }
     }
 }
