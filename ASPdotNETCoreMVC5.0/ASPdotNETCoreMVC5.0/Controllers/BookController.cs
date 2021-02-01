@@ -41,10 +41,10 @@ namespace ASPdotNETCoreMVC5._0.Controllers
         {
             var model = new BookModel()
             {
-                Language = "English"
+                Language = "1"
             };
 
-            ViewBag.Language = new SelectList(new List<string>() { "English", "English(U.K)" });
+            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -63,10 +63,19 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
-            ViewBag.Language = new SelectList(new List<string>() { "English", "English(U.K)" });
+            ViewBag.Language = new SelectList(GetLanguage(),"Id" ,"Text");
 
             ModelState.AddModelError("","This is my error message");
             return View();
+        }
+
+        private List<LanguageModel> GetLanguage()
+        {
+            return new List<LanguageModel>()
+            {
+                new LanguageModel() { Id=1,Text="English" },
+                new LanguageModel() { Id=2,Text="English(U.K)" }
+            };
         }
     }
 }
