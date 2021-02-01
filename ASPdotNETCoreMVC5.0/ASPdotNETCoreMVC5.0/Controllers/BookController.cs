@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ASPdotNETCoreMVC5._0.Models;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ASPdotNETCoreMVC5._0.Controllers
 {
@@ -38,9 +39,16 @@ namespace ASPdotNETCoreMVC5._0.Controllers
 
         public ViewResult AddNewBook(bool isSuccess = false ,int bookId = 0)
         {
+            var model = new BookModel()
+            {
+                Language = "English"
+            };
+
+            ViewBag.Language = new SelectList(new List<string>() { "English", "English(U.K)" });
+
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
-            return View();
+            return View(model);
         }
 
         [HttpPost]
@@ -55,6 +63,8 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
+            ViewBag.Language = new SelectList(new List<string>() { "English", "English(U.K)" });
+
             ModelState.AddModelError("","This is my error message");
             return View();
         }
