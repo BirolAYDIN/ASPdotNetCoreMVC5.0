@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using ASPdotNETCoreMVC5._0.Enums;
+using ASPdotNETCoreMVC5._0.Helpers;
 
 namespace ASPdotNETCoreMVC5._0.Models
 {
@@ -13,8 +14,9 @@ namespace ASPdotNETCoreMVC5._0.Models
         [Display(Name ="Choose date and time")]
         public string MyField { get; set; }
         public int Id { get; set; }
-        [StringLength(100, MinimumLength = 5)]
-        [Required(ErrorMessage = "Please enter the title of the book")]
+        //[StringLength(100, MinimumLength = 5)]
+        //[Required(ErrorMessage = "Please enter the title of the book")]
+        [MyCustomValidation("abc")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter the author name")]
         public string Author { get; set; }
