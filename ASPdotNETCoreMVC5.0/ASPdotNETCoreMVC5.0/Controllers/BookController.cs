@@ -44,7 +44,18 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                 Language = "1"
             };
 
-            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+            //ViewBag.Language = GetLanguage().Select(x => new SelectListItem() 
+            //{ 
+            //    Text  = x.Text,
+            //    Value = x.Id.ToString()
+
+            //}).ToList();
+
+            ViewBag.Language = new List<SelectListItem> { 
+                new SelectListItem() { Text="English", Value="1"},
+                new SelectListItem() { Text="English(U.K)" , Value="2"},
+                new SelectListItem() { Text="Turkish" , Value="3", Disabled = true}
+            };
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
