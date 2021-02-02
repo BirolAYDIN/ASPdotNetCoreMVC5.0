@@ -16,6 +16,7 @@ namespace ASPdotNETCoreMVC5._0.Data
 
         public DbSet<Books> Books { get; set; }
         public DbSet<Language> Language  { get; set; }
+        public DbSet<BookGallery> BookGallery { get; set; }
 
 
     }

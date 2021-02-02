@@ -32,6 +32,17 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 CoverImageUrl = bookModel.CoverImageUrl
             };
 
+            newBook.BookGallery = new List<BookGallery>();
+
+            foreach (var file in bookModel.Gallery)
+            {
+                newBook.BookGallery.Add(new BookGallery() { 
+                
+                Name = file.Name,
+                URL  = file.URL
+                });
+            }
+
             await _context.Books.AddAsync(newBook);
             await _context.SaveChangesAsync();
 
@@ -69,7 +80,13 @@ namespace ASPdotNETCoreMVC5._0.Repository
                     Language = book.Language.Name,
                     Title = book.Title,
                     TotalPages = book.TotalPages,
-                    CoverImageUrl = book.CoverImageUrl
+                    CoverImageUrl = book.CoverImageUrl,
+                    Gallery = book.BookGallery.Select(g => new GalleryModel() {
+
+                        Id = g.Id,
+                        Name = g.Name,
+                        URL = g.URL
+                    }).ToList()
 
                 }).FirstOrDefaultAsync();
                
