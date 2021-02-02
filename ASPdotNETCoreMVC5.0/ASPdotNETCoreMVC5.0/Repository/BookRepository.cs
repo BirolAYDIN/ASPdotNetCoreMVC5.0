@@ -29,7 +29,8 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 LanguageId = bookModel.LanguageId,
                 CreatedOn = DateTime.UtcNow,
                 UpdatedOn = DateTime.UtcNow,
-                CoverImageUrl = bookModel.CoverImageUrl
+                CoverImageUrl = bookModel.CoverImageUrl,
+                BookPdfUrl = bookModel.BookPdfUrl
             };
 
             newBook.BookGallery = new List<BookGallery>();
@@ -86,7 +87,8 @@ namespace ASPdotNETCoreMVC5._0.Repository
                         Id = g.Id,
                         Name = g.Name,
                         URL = g.URL
-                    }).ToList()
+                    }).ToList(),
+                    BookPdfUrl = book.BookPdfUrl
 
                 }).FirstOrDefaultAsync();
                
