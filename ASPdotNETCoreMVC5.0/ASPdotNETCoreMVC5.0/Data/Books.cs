@@ -19,6 +19,7 @@ namespace ASPdotNETCoreMVC5._0.Data
         public int LanguageId { get; set; }
         
         public int TotalPages { get; set; }
+        public string CoverImageUrl { get; set; }
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
 

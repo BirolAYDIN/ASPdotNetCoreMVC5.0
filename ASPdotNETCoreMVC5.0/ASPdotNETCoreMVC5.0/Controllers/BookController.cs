@@ -84,6 +84,9 @@ namespace ASPdotNETCoreMVC5._0.Controllers
                     string folder = "books/cover/";
                     folder += Guid.NewGuid().ToString() +"_" + bookModel.CoverPhoto.FileName;
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath ,folder);
+
+                    bookModel.CoverImageUrl = "/" + folder;
+
                     await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder ,FileMode.Create));
                 }
 

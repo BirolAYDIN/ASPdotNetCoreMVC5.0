@@ -15,9 +15,9 @@ namespace ASPdotNETCoreMVC5._0.Models
         [Display(Name ="Choose date and time")]
         public string MyField { get; set; }
         public int Id { get; set; }
-        //[StringLength(100, MinimumLength = 5)]
-        //[Required(ErrorMessage = "Please enter the title of the book")]
-        [MyCustomValidation("abc")]
+        [StringLength(100, MinimumLength = 5)]
+        [Required(ErrorMessage = "Please enter the title of the book")]
+        //[MyCustomValidation("abc")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter the author name")]
         public string Author { get; set; }
@@ -37,5 +37,6 @@ namespace ASPdotNETCoreMVC5._0.Models
         [Display(Name ="Choose the cover photo of your book")]
         [Required]
         public IFormFile CoverPhoto { get; set; }
+        public string CoverImageUrl { get; set; }
     }
 }

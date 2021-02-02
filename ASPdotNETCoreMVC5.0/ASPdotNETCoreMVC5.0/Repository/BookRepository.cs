@@ -28,7 +28,8 @@ namespace ASPdotNETCoreMVC5._0.Repository
                 TotalPages = bookModel.TotalPages,
                 LanguageId = bookModel.LanguageId,
                 CreatedOn = DateTime.UtcNow,
-                UpdatedOn = DateTime.UtcNow
+                UpdatedOn = DateTime.UtcNow,
+                CoverImageUrl = bookModel.CoverImageUrl
             };
 
             await _context.Books.AddAsync(newBook);
@@ -39,27 +40,20 @@ namespace ASPdotNETCoreMVC5._0.Repository
 
         public async Task<List<BookModel>> GetAllBooks()
         {
-            var books = new List<BookModel>();
-            var allbooks = await _context.Books.ToListAsync();
-            if(allbooks?.Any() == true)
-            {
-                foreach (var book in allbooks)
+            return await _context.Books
+                .Select(book => new BookModel()
                 {
-                    books.Add(new BookModel()
-                    {
-                        Author = book.Author,
-                        Category = book.Category,
-                        Description = book.Description,
-                        Id = book.Id,
-                        LanguageId = book.LanguageId,
-                        Language = book.Language.Name,
-                        Title = book.Title,
-                        TotalPages = book.TotalPages
-                    }); ;
+                    Author = book.Author,
+                    Category = book.Category,
+                    Description = book.Description,
+                    Id = book.Id,
+                    LanguageId = book.LanguageId,
+                    Language = book.Language.Name,
+                    Title = book.Title,
+                    TotalPages = book.TotalPages,
+                    CoverImageUrl = book.CoverImageUrl
 
-                }
-            }
-            return books; 
+                }).ToListAsync();
         }
 
         public async Task<BookModel> GetBookById(int id)
@@ -74,7 +68,8 @@ namespace ASPdotNETCoreMVC5._0.Repository
                     LanguageId = book.LanguageId,
                     Language = book.Language.Name,
                     Title = book.Title,
-                    TotalPages = book.TotalPages
+                    TotalPages = book.TotalPages,
+                    CoverImageUrl = book.CoverImageUrl
 
                 }).FirstOrDefaultAsync();
                
